@@ -9,8 +9,7 @@ def conectar():
     conexao.row_factory = sqlite3.Row
     return conexao
 
-
-# Jeito 1: filtro pelo caminho da URL
+ 
 @app.route("/autores/<int:autor_id>/livros", methods=["GET"])
 def livros_do_autor(autor_id):
     conexao = conectar()
@@ -21,8 +20,7 @@ def livros_do_autor(autor_id):
     conexao.close()
     return jsonify(resultado)
 
-
-# Jeito 2: filtro por query string (?titulo=...)
+ 
 @app.route("/livros/busca", methods=["GET"])
 def buscar_livros():
     termo = request.args.get("titulo")

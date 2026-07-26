@@ -10,7 +10,7 @@ def conectar():
     return conexao
 
 
-# READ - listar
+ 
 @app.route("/tarefas", methods=["GET"])
 def listar():
     conexao = conectar()
@@ -20,7 +20,7 @@ def listar():
     return jsonify(tarefas)
 
 
-# CREATE - criar
+ 
 @app.route("/tarefas", methods=["POST"])
 def criar():
     novo = request.get_json()
@@ -35,7 +35,7 @@ def criar():
     return jsonify({"id": novo_id, **novo}), 201
 
 
-# UPDATE - atualizar
+ 
 @app.route("/tarefas/<int:id>", methods=["PUT"])
 def atualizar(id):
     dados = request.get_json()
@@ -54,7 +54,7 @@ def atualizar(id):
     return jsonify({"id": id, **dados})
 
 
-# DELETE - apagar
+ 
 @app.route("/tarefas/<int:id>", methods=["DELETE"])
 def apagar(id):
     conexao = conectar()

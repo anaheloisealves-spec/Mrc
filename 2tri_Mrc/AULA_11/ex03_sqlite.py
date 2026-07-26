@@ -3,15 +3,12 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-
-# Função auxiliar para conectar ao banco
 def conectar():
     conexao = sqlite3.connect("loja.db")
     conexao.row_factory = sqlite3.Row
     return conexao
 
 
-# Função para criar a tabela na inicialização do servidor
 def criar_tabela():
     conexao = conectar()
     conexao.execute("""
@@ -24,8 +21,6 @@ def criar_tabela():
     conexao.commit()
     conexao.close()
 
-
-# READ - Listar todos os produtos
 @app.route("/produtos", methods=["GET"])
 def listar_produtos():
     conexao = conectar()
@@ -35,13 +30,11 @@ def listar_produtos():
     return jsonify(produtos)
 
 
-# CREATE - Cadastrar novo produto
 @app.route("/produtos", methods=["POST"])
 def criar_produto():
     novo = request.get_json()
 
-    # Validação: verifica se o JSON existe e se o campo 'preco' foi enviado
-    if not novo or "preco" not in novo:
+   
         return jsonify({"erro": "O campo preco e obrigatorio"}), 400
 
     if "nome" not in novo:

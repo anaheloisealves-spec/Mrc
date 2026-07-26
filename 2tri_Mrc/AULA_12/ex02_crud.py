@@ -9,8 +9,7 @@ def conectar():
     conexao.row_factory = sqlite3.Row
     return conexao
 
-
-# DELETE - apagar
+ 
 @app.route("/produtos/<int:id>", methods=["DELETE"])
 def apagar(id):
     conexao = conectar()

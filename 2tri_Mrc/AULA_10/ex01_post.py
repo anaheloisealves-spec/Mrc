@@ -2,7 +2,6 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-# Banco de dados em memória
 produtos = [
     {"id": 1, "nome": "Teclado Mecânico", "preco": 250.0},
     {"id": 2, "nome": "Mouse Gamer", "preco": 120.0},

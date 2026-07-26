@@ -10,7 +10,7 @@ def conectar():
 def criar_tabelas():
     conexao = conectar()
 
-    # Tabela autores
+ 
     conexao.execute("""
     CREATE TABLE IF NOT EXISTS autores (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -18,7 +18,7 @@ def criar_tabelas():
     )
     """)
 
-    # Tabela livros com FOREIGN KEY
+ 
     conexao.execute("""
     CREATE TABLE IF NOT EXISTS livros (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -34,8 +34,7 @@ def criar_tabelas():
 
 def inserir_dados():
     conexao = conectar()
-
-    # Insere 2 autores
+ 
     conexao.execute(
         "INSERT INTO autores (nome) VALUES (?)", ("Machado de Assis",)
     )
@@ -43,7 +42,7 @@ def inserir_dados():
         "INSERT INTO autores (nome) VALUES (?)", ("Clarice Lispector",)
     )
 
-    # Insere 3 livros
+   
     conexao.execute(
         "INSERT INTO livros (titulo, autor_id) VALUES (?, ?)",
         ("Dom Casmurro", 1),

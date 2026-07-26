@@ -12,7 +12,7 @@ def saudacao():
 @app.route("/data")
 def mostrar_data():
     hoje = date.today()
-    # strftime('%d/%m/%Y') formata a data para o padrao Dia/Mes/Ano
+    
     data_formatada = hoje.strftime("%d/%m/%Y")
     return f"A data de hoje é: {data_formatada}"
 

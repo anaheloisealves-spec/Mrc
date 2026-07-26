@@ -2,7 +2,6 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-# Banco de dados de tarefas em memória
 tarefas = [{"id": 1, "titulo": "Estudar Flask", "feita": True}]
 
 
@@ -15,7 +14,6 @@ def listar_tarefas():
 def criar_tarefa():
     nova_tarefa = request.get_json()
 
-    # Valida se o JSON existe, se o campo 'titulo' existe e se não está vazio/apenas espaços
     if (
         not nova_tarefa
         or "titulo" not in nova_tarefa

@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def inicio():
-    # Substitua pelo seu nome completo
+ 
     return "Aninha"
 
 

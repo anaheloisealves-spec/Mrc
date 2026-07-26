@@ -10,7 +10,7 @@ def conectar():
     return conexao
 
 
-# READ - listar
+
 @app.route("/produtos", methods=["GET"])
 def listar():
     conexao = conectar()
@@ -20,7 +20,7 @@ def listar():
     return jsonify(produtos)
 
 
-# UPDATE - atualizar
+ 
 @app.route("/produtos/<int:id>", methods=["PUT"])
 def atualizar(id):
     dados = request.get_json()

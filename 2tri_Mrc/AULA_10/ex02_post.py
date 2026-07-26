@@ -17,7 +17,6 @@ def listar_produtos():
 def criar_produto():
     novo_produto = request.get_json()
 
-    # Validação: verifica se o JSON existe e se o campo 'preco' foi enviado
     if not novo_produto or "preco" not in novo_produto:
         return jsonify({"erro": "O campo preco e obrigatorio"}), 400
 

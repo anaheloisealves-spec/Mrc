@@ -21,7 +21,7 @@ def buscar_produto(id):
         if produto["id"] == id:
             return jsonify(produto)
 
-    # Caso não encontre nenhum produto com o ID especificado
+   
     return jsonify({"erro": "Produto nao encontrado"}), 404
 
 

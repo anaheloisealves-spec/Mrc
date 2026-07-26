@@ -1,0 +1,29 @@
+from flask import Flask, jsonify, request
+
+app = Flask(__name__)
+
+produtos = [
+    {"id": 1, "nome": "Teclado Mecânico", "preco": 250.0},
+    {"id": 2, "nome": "Mouse Gamer", "preco": 120.0},
+]
+
+
+@app.route("/produtos", methods=["GET"])
+def listar_produtos():
+    return jsonify(produtos)
+
+
+@app.route("/produtos", methods=["POST"])
+def criar_produto():
+    novo_produto = request.get_json()
+
+    # Validação: verifica se o JSON existe e se o campo 'preco' foi enviado
+    if not novo_produto or "preco" not in novo_produto:
+        return jsonify({"erro": "O campo preco e obrigatorio"}), 400
+
+    produtos.append(novo_produto)
+    return jsonify(novo_produto), 201
+
+
+if __name__ == "__main__":
+    app.run(debug=True)

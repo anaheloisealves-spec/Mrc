@@ -1,0 +1,23 @@
+### Listar todos os produtos
+GET http://127.0.0.1:5000/produtos
+
+###
+
+### Criar um novo produto com sucesso
+POST http://127.0.0.1:5000/produtos
+Content-Type: application/json
+
+{
+    "nome": "Headset USB",
+    "preco": 180.00
+}
+
+###
+
+### Teste de erro: tentando criar sem o campo preco
+POST http://127.0.0.1:5000/produtos
+Content-Type: application/json
+
+{
+    "nome": "Webcam HD"
+}
